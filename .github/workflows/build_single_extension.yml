@@ -10,7 +10,7 @@ on:
         description: Target extension name
         required: true
       git-repo:
-        description: Git repo (Optional, defaults to <your name>/aniyomi-extensions
+        description: Git repo (Optional, defaults to Abhishek890/aniyomi-extensions
         default: ''
         required: false
       git-ref:
