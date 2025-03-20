@@ -10,7 +10,7 @@ on:
         description: Target extension name
         required: true
       git-repo:
-        description: Git repo (Optional, defaults to Abhishek890/aniyomi-extensions
+        description: Git repo (Optional, defaults to Abhishek890/aniyomi-extensions)
         default: ''
         required: false
       git-ref:
@@ -34,6 +34,7 @@ jobs:
           if [[ -z "${{ env.REPO }}" ]]; then
             echo "REPO=${{ github.repository_owner }}/extensions-source" >> $GITHUB_ENV
           fi
+
       - name: Clone Repository (Latest)
         uses: actions/checkout@v4
         with:
@@ -46,6 +47,9 @@ jobs:
         with:
           java-version: 21
           distribution: zulu
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
 
       - name: Build APK
         env:
